@@ -39,7 +39,7 @@ describe('\n\x1b[44mDemand Profiles API\x1b[0m\n', () => {
         expect(activeProfile.metrics[0].metric_name).to.equal('cd-power-target');
         expect(activeProfile.metrics[0].shape).to.be.instanceof(Array);
         expect(activeProfile.metrics[0].shape).to.have.length(48);
-        activeProfile.metrics[0].shape.map((shapeItem) => {
+        activeProfile.metrics[0].shape.forEach((shapeItem) => {
           expect(shapeItem.halfhour_start).to.be.above(0);
           expect(shapeItem.halfhour_start).to.be.below(49);
           expect(shapeItem.value).to.be.closeTo(1000.0, 1300.0); // just to know this is a float number
@@ -82,7 +82,7 @@ describe('\n\x1b[44mDemand Profiles API\x1b[0m\n', () => {
         expect(defaultProfile.metrics[0].metric_name).to.equal('cd-power-target');
         expect(defaultProfile.metrics[0].shape).to.be.instanceof(Array);
         expect(defaultProfile.metrics[0].shape).to.have.length(48);
-        defaultProfile.metrics[0].shape.map((shapeItem) => {
+        defaultProfile.metrics[0].shape.forEach((shapeItem) => {
           expect(shapeItem.halfhour_start).to.be.above(0);
           expect(shapeItem.halfhour_start).to.be.below(49);
           expect(shapeItem.value).to.be.closeTo(1000.0, 1300.0); // just to know this is a float number

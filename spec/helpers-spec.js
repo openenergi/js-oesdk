@@ -50,7 +50,7 @@ describe('\n\x1b[44mHelpers\x1b[0m\n', () => {
     // then
     expect(signalContent.type).to.equal('variable-adjust');
     expect(signalContent.target.entity).to.equal(sampleProfile.entity_code);
-    signalContent.content.map(contentElem => {
+    signalContent.content.forEach(contentElem => {
       expect(contentElem.values[0].name).to.equal(profileMetric);
       /* eslint-disable no-unused-expressions */
       expect(moment(contentElem.start_at, 'YYYY-MM-DDTHH:mm:ss.SSSZ').isValid()).is.true;

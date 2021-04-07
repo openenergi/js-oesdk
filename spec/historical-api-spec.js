@@ -31,7 +31,7 @@ describe('\n\x1b[44mHistorical API\x1b[0m\n', () => {
 
         expect(rawReadings).to.be.instanceof(Array);
         expect(rawReadings).to.have.lengthOf(3);
-        rawReadings.map(readingElem => {
+        rawReadings.forEach(readingElem => {
           expect(readingElem.time).to.match(config.isoDateTimeWithMillisecondsPattern);
           expect(readingElem.value).to.be.a('number');
           expect(readingElem.value).to.be.above(0);
@@ -55,7 +55,7 @@ describe('\n\x1b[44mHistorical API\x1b[0m\n', () => {
 
         expect(resampledReadings).to.be.instanceof(Array);
         expect(resampledReadings).to.have.lengthOf(3);
-        resampledReadings.map(readingElem => {
+        resampledReadings.forEach(readingElem => {
           expect(readingElem.time).to.match(config.isoDateTimeNoMillisecondsPattern);
           expect(readingElem.value).to.be.a('number');
           expect(readingElem.value).to.be.above(9);
