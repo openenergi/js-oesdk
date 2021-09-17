@@ -17,6 +17,14 @@ describe('\n\x1b[44mSignal API\x1b[0m\n', () => {
   let sampleProfile;
 
   before(() => {
+    if (!process.env.OE_USERNAME) {
+      console.error('OE_USERNAME is not set! Exit!');
+      process.exit();
+    }
+    if (!process.env.OE_PASSWORD) {
+      console.error('OE_PASSWORD is not set! Exit!');
+      process.exit();
+    }
     return oeSdk.api.newInstance(username, password)
       .then((oeProdInstance) => {
         oeProdApi = oeProdInstance;
