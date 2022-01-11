@@ -1,0 +1,29 @@
+name: Open Energi SDK for JavaScript
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install the SDK
+        run: make install
+      - name: Lint the source code
+        run: make lint
+      - name: Run the tests
+        env:
+          OE_USERNAME: ${{secrets.OE_USERNAME}}
+          OE_PASSWORD: ${{secrets.OE_PASSWORD}}
+        run: make test
