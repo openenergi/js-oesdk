@@ -1,6 +1,6 @@
 # OESDK
 
-[![Build Status](https://travis-ci.org/openenergi/js-oesdk.svg?branch=master)](https://travis-ci.org/openenergi/js-oesdk)
+![full workflow](https://github.com/openenergi/js-oesdk/actions/workflows/main.yml/badge.svg)
 
 This is the Javascript SDK for the Open Energi API.
 
